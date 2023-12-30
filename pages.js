@@ -30,11 +30,6 @@ const outputTag = document.querySelector('h2');
 const circleTag = document.querySelector('.circle');
 const bodyTag = document.querySelector('body');
 
-const random = () => {
-  pageNumber = Math.floor(Math.random() * pages.length);
-  updateSection();
-};
-
 const next = () => {
   pageNumber += 1;
 
@@ -46,12 +41,17 @@ const next = () => {
 };
 
 const previous = () => {
-  pageNumber = pageNumber - 1;
+  pageNumber -= 1;
 
-  if (pageNumber < 1) {
+  if (pageNumber < 0) {
     pageNumber = pages.length - 1;
   }
 
+  updateSection();
+};
+
+const random = () => {
+  pageNumber = Math.floor(Math.random() * pages.length);
   updateSection();
 };
 
@@ -71,4 +71,15 @@ prevTag.addEventListener('click', () => {
 // onclick random
 randomTag.addEventListener('click', () => {
   random();
+});
+
+document.addEventListener('keyup', (e) => {
+  console.log(e.key);
+
+  if (e.key == 'ArrowRight') {
+    next();
+  }
+  if (e.key == 'ArrowLeft') {
+    previous();
+  }
 });
