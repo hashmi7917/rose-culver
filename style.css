@@ -42,6 +42,10 @@ section div.circle {
   transition: background-color 0.5s;
 }
 
+section a {
+  color: #000;
+}
+
 footer {
   display: flex;
   justify-content: center;
@@ -56,4 +60,5 @@ footer {
 footer img {
   margin: 0 10px 0 10px;
   transform: translate(-50%, -50%);
+  cursor: pointer;
 }
