@@ -25,9 +25,15 @@ const pages = [
 
 const nextTag = document.querySelector('.next');
 const prevTag = document.querySelector('.prev');
+const randomTag = document.querySelector('.random');
 const outputTag = document.querySelector('h2');
 const circleTag = document.querySelector('.circle');
 const bodyTag = document.querySelector('body');
+
+const random = () => {
+  pageNumber = Math.floor(Math.random() * pages.length);
+  updateSection();
+};
 
 const next = () => {
   pageNumber += 1;
@@ -60,4 +66,9 @@ nextTag.addEventListener('click', () => {
 });
 prevTag.addEventListener('click', () => {
   previous();
+});
+
+// onclick random
+randomTag.addEventListener('click', () => {
+  random();
 });
